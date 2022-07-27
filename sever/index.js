@@ -41,7 +41,7 @@ app.get("/controle", (req, res) => {
 
 app.get("/performance", (req, res) => {
   pool.query(
-    "SELECT performance, cur_day FROM performance_per_hour WHERE cur_day = DATE_FORMAT(CURDATE(), '%d/%m/%Y') AND cur_time > SUBTIME(CURRENT_TIME(), 010000)",
+    "SELECT performance, cur_day FROM performance_per_hour WHERE cur_day = DATE_FORMAT(CURDATE(), '%d/%m/%Y')",
     (err, rows) => {
       err ? res.send(err) : res.send(rows);
     }
